@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Lauch } from "./Lauch";
+import { Event } from "./Event";
 
 @Entity('article')
 export class Article {
@@ -29,4 +30,7 @@ export class Article {
 
     @OneToMany(() => Lauch, lauch => lauch.article)
     lauch: Lauch;
+
+    @OneToMany(() => Event, event => event.article)
+    event: Event;
 }
