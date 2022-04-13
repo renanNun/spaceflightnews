@@ -21,7 +21,7 @@ export interface IUpdateArticle{
 }
 
 export interface IArticlesRepository {
-    // findByTitle(title: string): Promise<Article | undefined>;
+    findByTitleAndUrl(title: string, url: string): Promise<Article | undefined>;
     findById(id: number): Promise<Article | undefined>;
     findAll(page: number, limit: number): Promise<Article[]>;
     create(data: ICreateArticle): Promise<Article>;

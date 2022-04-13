@@ -1,4 +1,5 @@
 import { delay, inject, injectable, registry } from "tsyringe";
+import { AppError } from "../../errors/AppError";
 import { Article } from "../models/Article";
 import ArticlesRepository from "../repositories/ArticlesRepository";
 import { IArticlesRepository, ICreateArticle, IUpdateArticle } from "../repositories/IArticlesRepository";
@@ -19,6 +20,12 @@ export class UpdateArticleService {
     ) {}
 
     public async execute(id: number, data: IUpdateArticle): Promise<Article> {
+
+        const existingArticle = await this.repository.findById(id);
+
+        if(!existingArticle){
+            throw new AppError("Article not found", 404);
+        }
 
         const article = await this.repository.update(id,{
             title: data.title,

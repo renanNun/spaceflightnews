@@ -1,5 +1,4 @@
 import { getRepository, Repository } from "typeorm";
-import { AppError } from "../../errors/AppError";
 import { Article } from "../models/Article";
 import { IArticlesRepository, ICreateArticle } from "./IArticlesRepository";
 
@@ -10,6 +9,16 @@ export default class ArticlesRepository implements IArticlesRepository {
 
     constructor(){
         this.ormRepository = getRepository(Article);
+    }
+
+    public async findByTitleAndUrl(title: string, url: string): Promise<Article | undefined>
+    {
+        return this.ormRepository.findOne({
+            where: {
+                title: title,
+                url: url
+            }
+        });
     }
 
     public async findAll(page: number, limit: number): Promise<Article[]> {
@@ -26,18 +35,6 @@ export default class ArticlesRepository implements IArticlesRepository {
 
     public async  create(data: ICreateArticle): Promise<Article> {
         
-        // Verificando se já existe o artigo cadastrado
-        const existingArticle = await this.ormRepository.findOne({
-            where: {
-                title: data.title,
-                url: data.url,
-            }
-        });
-
-        if(existingArticle){
-            throw new AppError("Article already exists", 404);
-        }
-
         const article = this.ormRepository.create({
             title: data.title,
             featured: data.featured || false,
@@ -66,8 +63,9 @@ export default class ArticlesRepository implements IArticlesRepository {
 
         const article = await this.ormRepository.findOne(id);
 
-        if(!article){
-            throw new AppError("Article not found", 404);
+        if(!article)
+        {
+            throw new Error("Article not found");
         }
 
         if(data.title){
@@ -107,11 +105,7 @@ export default class ArticlesRepository implements IArticlesRepository {
 
     public async delete(id: number): Promise<void> {
             
-            const article = await this.ormRepository.findOne(id);
-    
-            if(!article){
-                throw new AppError("Article not found", 404);
-            }
+            const article = await this.ormRepository.findOneOrFail(id);
     
             await this.ormRepository.remove(article);
     
