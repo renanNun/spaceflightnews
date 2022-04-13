@@ -6,7 +6,10 @@
   "author": "renan <renannunes400@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts"
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "dev": "ts-node-dev -r --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
