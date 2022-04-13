@@ -10,7 +10,7 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 ### ToDo
 
  - Obrigatório 1:
-* [ ] [GET]/:  Retornar um Status: 200 e uma Mensagem "Back-end Challenge 2021 🏅 - Space Flight News"
+* [x] [GET]/:  Retornar um Status: 200 e uma Mensagem "Back-end Challenge 2021 🏅 - Space Flight News"
 * [ ] [GET]/articles/:   Listar todos os artigos da base de dados, utilizar o sistema de paginação para não sobrecarregar a REQUEST
 * [ ] [GET]/articles/{id}: Obter a informação somente de um artigo
 * [ ] [POST]/articles/: Adicionar um novo artigo
