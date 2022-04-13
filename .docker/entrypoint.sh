@@ -1,4 +1,5 @@
 #!/bin/bash
 
 npm install
-npm run dev
+npm run typeorm migration:run
+npm run start

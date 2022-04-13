@@ -29,8 +29,8 @@ export class Article {
     publishedAt: Date;
 
     @OneToMany(() => Lauch, lauch => lauch.article)
-    lauch: Lauch;
+    lauchs: Lauch;
 
     @OneToMany(() => Event, event => event.article)
-    event: Event;
+    events: Event;
 }
