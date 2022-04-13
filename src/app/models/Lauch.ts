@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Article } from "./Article";
 
 @Entity('launch')
 export class Lauch {
@@ -7,4 +8,7 @@ export class Lauch {
 
     @Column({ unique: true})
     provider: string;
+
+    @ManyToOne(() => Article, article => article.lauch)
+    article: Article;
 }

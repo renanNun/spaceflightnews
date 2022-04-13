@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Lauch } from "./Lauch";
 
 @Entity('article')
 export class Article {
@@ -25,4 +26,7 @@ export class Article {
 
     @Column()
     publishedAt: Date;
+
+    @OneToMany(() => Lauch, lauch => lauch.article)
+    lauch: Lauch;
 }
