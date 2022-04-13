@@ -22,5 +22,9 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 
 - Obrigatório 3:
 * [ ] Além disso você precisa desenvolver um CRON para ser executado diariamente às 9h e armazenar em seu os novos artigos ao seu banco de dados. (Para essa tarefa você poderá alterar o seu modelo de dados)
+
+- Diferencial 4:
+* [x]  Escrever Unit Tests para os endpoints da API;
+
 -----------
 This is a challenge by [Coodesh](https://coodesh.com).
