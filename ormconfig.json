@@ -1,7 +1,7 @@
 {
     "name": "default",
     "type": "postgres",
-    "host": "spaceflight-db",
+    "host": "localhost",
     "port": 5432,
     "username": "postgres",
     "password": "spaceflight",
@@ -12,5 +12,6 @@
     ],
     "cli": {
       "migrationsDir": "./src/database/migrations"
-    }
+    },
+    "synchronize": true
 }

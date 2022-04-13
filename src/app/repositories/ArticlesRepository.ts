@@ -24,7 +24,6 @@ export default class ArticlesRepository implements IArticlesRepository {
     public async findAll(page: number, limit: number): Promise<Article[]> {
 
         const articles = await this.ormRepository.createQueryBuilder("article")
-                                            //.leftJoinAndSelect("article.lauch", "lauchs")
                                             .take(limit)
                                             .skip((page - 1) * limit)
                                             .getMany();

@@ -5,6 +5,10 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 
 ## Tecnologiais Utilizadas
 
+* Nodejs
+* Postgresql
+* Docker
+
 ## Instalação do Projeto
 
 ### ToDo
@@ -18,10 +22,19 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 * [x] [DELETE]/articles/{id}: Remover um artigo baseado no id
 
 - Obrigatório 2:
-* [ ] Para alimentar o seu banco de dados você deve criar um script para armazenar os dados de todos os artigos na Space Flight News API.
+* [x] Para alimentar o seu banco de dados você deve criar um script para armazenar os dados de todos os artigos na Space Flight News API.
 
 - Obrigatório 3:
 * [ ] Além disso você precisa desenvolver um CRON para ser executado diariamente às 9h e armazenar em seu os novos artigos ao seu banco de dados. (Para essa tarefa você poderá alterar o seu modelo de dados)
+
+- Diferencial 1:
+* [x] Configurar Docker no Projeto para facilitar o Deploy da equipe de DevOps;
+
+- Diferencial 2:
+* [x] Configurar um sistema de alerta se houver algum falha durante a sincronização dos artigos;
+
+- Diferencial 3:
+* [ ] Descrever a documentação da API utilizando o conceito de Open API 3.0;
 
 - Diferencial 4:
 * [x]  Escrever Unit Tests para os endpoints da API;
