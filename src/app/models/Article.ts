@@ -1,6 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Lauch } from "./Lauch";
-import { Event } from "./Event";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('article')
 export class Article {
@@ -26,11 +24,11 @@ export class Article {
     summary: string;
 
     @Column()
-    publishedAt: Date;
+    publishedAt: string;
 
-    @OneToMany(() => Lauch, lauch => lauch.article)
-    lauchs: Lauch;
+    @CreateDateColumn()
+    createdAt: Date;
 
-    @OneToMany(() => Event, event => event.article)
-    events: Event;
+    @UpdateDateColumn()
+    updatedAt: Date;
 }

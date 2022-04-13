@@ -42,7 +42,18 @@ export class CreateArticle1649862667234 implements MigrationInterface {
                     },
                     {
                         name: 'publishedAt',
+                        type: 'varchar',
+                    },
+                    {
+                        name: 'createdAt',
                         type: 'timestamp',
+                        default: 'CURRENT_TIMESTAMP',
+                    },
+                    {
+                        name: 'updatedAt',
+                        type: 'timestamp',
+                        default: 'CURRENT_TIMESTAMP',
+                        onUpdate: 'CURRENT_TIMESTAMP',
                     },
                 ],
             }),
@@ -50,6 +61,7 @@ export class CreateArticle1649862667234 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable('article');
     }
 
 }

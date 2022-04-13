@@ -11,18 +11,18 @@ import { IArticlesRepository } from "../repositories/IArticlesRepository";
       useToken: delay(() => ArticlesRepository)
     }
   ])
-export class ListAllArticlesService {
+export class ShowArticlesService {
 
     constructor(
         @inject('ArticlesRepository')
         private repository: IArticlesRepository,
     ) {}
 
-    public async execute(page: number = 1, limit: number = 100): Promise<Article[]> {
+    public async execute(id: number): Promise<Article | undefined> {
         
-        const articles = await this.repository.findAll(page, limit);
+        const article = await this.repository.findById(id);
 
-        return articles;
+        return article;
 
     }
 

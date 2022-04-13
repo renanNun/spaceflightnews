@@ -1,15 +1,16 @@
 {
+    "name": "default",
     "type": "postgres",
-    "host": "localhost",
+    "host": "spaceflight-db",
     "port": 5432,
     "username": "postgres",
     "password": "spaceflight",
     "database": "spaceflight",
-    "entities": ["./dist/app/models/*.js"],
+    "entities": ["./src/app/models/*.ts"],
     "migrations": [
-      "./dist/database/migrations/*.js"
+      "./src/database/migrations/*.ts"
     ],
     "cli": {
       "migrationsDir": "./src/database/migrations"
     }
-  }
+}
