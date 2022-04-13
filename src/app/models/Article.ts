@@ -5,7 +5,7 @@ export class Article {
     @PrimaryGeneratedColumn()
     id: number;
     
-    @Column()
+    @Column({ unique: true})
     title: string;
 
     @Column({ default: false })
