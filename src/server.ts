@@ -28,7 +28,7 @@ app.use(
             message: "Internal server error"
         });
     }
-)
+);
 
 app.use(router);
 

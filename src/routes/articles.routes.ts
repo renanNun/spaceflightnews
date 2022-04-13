@@ -2,8 +2,10 @@ import { celebrate, Segments } from "celebrate";
 import { Router } from "express";
 import Joi from "joi";
 import { CreateArticleController } from "../app/controllers/CreateArticleController";
+import { DeleteArticlesController } from "../app/controllers/DeleteArticleController";
 import { ListAllArticlesController } from "../app/controllers/ListAllArticlesController";
 import { ShowArticlesController } from "../app/controllers/ShowArticleController";
+import { UpdateArticleController } from "../app/controllers/UpdateArticleController";
 
 const articlesRouter = Router();
 
@@ -42,6 +44,35 @@ articlesRouter.get(
         }
     }),
     new ShowArticlesController().handle
+)
+
+articlesRouter.delete(
+    '/:id',
+    celebrate({
+        [Segments.PARAMS]: {
+            id: Joi.number().required().min(0),
+        }
+    }),
+    new DeleteArticlesController().handle
+)
+
+articlesRouter.put(
+    '/:id',
+    celebrate({
+        [Segments.PARAMS]: {
+            id: Joi.number().required().min(0),
+        },
+        [Segments.BODY]: {
+            title: Joi.string(),
+            featured: Joi.boolean(),
+            url: Joi.string(),
+            imageUrl: Joi.string(),
+            newsSite: Joi.string(),
+            summary: Joi.string(),
+            publishedAt: Joi.string(),
+        }
+    }),
+    new UpdateArticleController().handle
 )
 
 export default articlesRouter;

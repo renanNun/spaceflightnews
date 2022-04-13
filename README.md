@@ -11,11 +11,11 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 
  - Obrigatório 1:
 * [x] [GET]/:  Retornar um Status: 200 e uma Mensagem "Back-end Challenge 2021 🏅 - Space Flight News"
-* [ ] [GET]/articles/:   Listar todos os artigos da base de dados, utilizar o sistema de paginação para não sobrecarregar a REQUEST
-* [ ] [GET]/articles/{id}: Obter a informação somente de um artigo
-* [ ] [POST]/articles/: Adicionar um novo artigo
-* [ ] [PUT]/articles/{id}: Atualizar um artigo baseado no id
-* [ ] [DELETE]/articles/{id}: Remover um artigo baseado no id
+* [x] [GET]/articles/:   Listar todos os artigos da base de dados, utilizar o sistema de paginação para não sobrecarregar a REQUEST
+* [x] [GET]/articles/{id}: Obter a informação somente de um artigo
+* [x] [POST]/articles/: Adicionar um novo artigo
+* [x] [PUT]/articles/{id}: Atualizar um artigo baseado no id
+* [x] [DELETE]/articles/{id}: Remover um artigo baseado no id
 
 - Obrigatório 2:
 * [ ] Para alimentar o seu banco de dados você deve criar um script para armazenar os dados de todos os artigos na Space Flight News API.

@@ -1,10 +1,12 @@
 import { Request, Response } from "express";
 import { container } from 'tsyringe';
-import { CreateArticleService } from "../services/CreateArticleService";
+import { UpdateArticleService } from "../services/UpdateArticleService";
 
-export class CreateArticleController {
+export class UpdateArticleController {
 
     public async handle(request: Request, response: Response): Promise<Response> {
+
+        const { id } = request.params;
 
         const { 
             title, 
@@ -16,9 +18,9 @@ export class CreateArticleController {
             publishedAt
         } = request.body;
 
-        const createArticle = container.resolve(CreateArticleService);
+        const updateArticle = container.resolve(UpdateArticleService);
 
-        const article = await createArticle.execute({
+        const article = await updateArticle.execute(Number(id), {
             title, 
             featured,
             url, 
@@ -28,7 +30,7 @@ export class CreateArticleController {
             publishedAt
         });
 
-        return response.status(201).json({
+        return response.status(204).json({
             data: article
         });
 

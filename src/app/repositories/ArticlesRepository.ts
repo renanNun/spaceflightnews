@@ -61,4 +61,59 @@ export default class ArticlesRepository implements IArticlesRepository {
         
         return article;
     }
+
+    public async update(id: number, data: ICreateArticle): Promise<Article> {
+
+        const article = await this.ormRepository.findOne(id);
+
+        if(!article){
+            throw new AppError("Article not found", 404);
+        }
+
+        if(data.title){
+            article.title = data.title;
+        }
+
+        if(data.featured){
+            article.featured = data.featured;
+        }
+
+        if(data.url){
+            article.url = data.url;
+        }
+
+        if(data.imageUrl){
+            article.imageUrl = data.imageUrl;
+        }
+
+        if(data.newsSite){
+            article.newsSite = data.newsSite;
+        }
+
+        if(data.summary){
+            article.summary = data.summary;
+        }
+
+        if(data.publishedAt){
+            article.publishedAt = data.publishedAt;
+        }
+
+        await this.ormRepository.save(article);
+
+        return article;
+
+
+    }
+
+    public async delete(id: number): Promise<void> {
+            
+            const article = await this.ormRepository.findOne(id);
+    
+            if(!article){
+                throw new AppError("Article not found", 404);
+            }
+    
+            await this.ormRepository.remove(article);
+    
+        }
 }

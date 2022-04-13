@@ -10,7 +10,7 @@ export class ShowArticlesController {
 
         const showArticle = container.resolve(ShowArticlesService);
 
-        const article = await showArticle.execute(id);
+        const article = await showArticle.execute(Number(id));
 
         return response.status(200).json({
             data: article

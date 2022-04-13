@@ -8,9 +8,9 @@ export class ListAllArticlesController {
 
         const { page, limit } = request.query;
 
-        const listAllProducts = container.resolve(ListAllArticlesService);
+        const listAllArticles = container.resolve(ListAllArticlesService);
 
-        const articles = await listAllProducts.execute(page ? Number(page) : 1,limit ? Number(limit) : 100);
+        const articles = await listAllArticles.execute(page ? Number(page) : 1,limit ? Number(limit) : 100);
 
         return response.status(200).json({
             data: articles
