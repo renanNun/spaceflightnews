@@ -1,7 +1,7 @@
 {
     "name": "default",
     "type": "postgres",
-    "host": "localhost",
+    "host": "spaceflight-db",
     "port": 5432,
     "username": "postgres",
     "password": "spaceflight",

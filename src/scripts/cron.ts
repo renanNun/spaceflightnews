@@ -17,6 +17,7 @@ const cronScript = async () => {
         // Ultimo artigo criado através do cron
         const cronJobrepository = getRepository(CronJob);
         const cronJob = await cronJobrepository.findOne({ order: { id: "DESC" } });
+        console.log(`Ultimo artigo criado através do cron: ${cronJob?.quantity || 0}`);
 
         const createArticleService = await container.resolve(CreateArticleService);
 

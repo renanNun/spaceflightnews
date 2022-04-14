@@ -42,7 +42,30 @@ suba o servidor
 npm run dev
 ```
 
+* Script de seed
+
+```
+npm run seed
+```
+
 ### Utilizando o docker
+
+* Crie o ambiente docker
+
+```
+docker-compose up -d
+```
+
+* Script de seed
+
+```
+docker exec -it app npm run seed
+```
+
+-------
+### Formas de acesso
+
+localhost:3333/
 
 ### ToDo
 

@@ -20,7 +20,7 @@ export class CreateCronJob1649944179117 implements MigrationInterface {
                     },
                     {
                         name: 'runAt',
-                        type: 'datetime',
+                        type: 'timestamp',
                         default: 'CURRENT_TIMESTAMP',
                     },
                 ],
