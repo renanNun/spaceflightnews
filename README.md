@@ -3,6 +3,8 @@
 Este é um desafio para avaliação das capacidades de desenvolvimento Back-end Developer, o objetivo deste projeto é criar uma API Rest que utilizará os dados do projeto 
 [Space Flight News](https://api.spaceflightnewsapi.net/v3/documentation), uma api pública com informações sobre voos espaciais.
 
+* Acessando o projeto: localhost:3333/
+
 ## Tecnologiais Utilizadas
 
 * Nodejs
@@ -63,9 +65,9 @@ docker exec -it app npm run seed
 ```
 
 -------
-### Formas de acesso
+aviso sobre erros de construção do container: Podem ocorrer erros na execução da construção do app devido a substituição de lf para crlf
+causada pelo windows, altere o tipo de endpoint dos arquivos Dockerfile e do script para que o erro não ocorra mais;
 
-localhost:3333/
 
 ### ToDo
 
