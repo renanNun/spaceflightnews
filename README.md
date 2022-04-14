@@ -59,7 +59,7 @@ npm run dev
 * [x] Para alimentar o seu banco de dados você deve criar um script para armazenar os dados de todos os artigos na Space Flight News API.
 
 - Obrigatório 3:
-* [ ] Além disso você precisa desenvolver um CRON para ser executado diariamente às 9h e armazenar em seu os novos artigos ao seu banco de dados. (Para essa tarefa você poderá alterar o seu modelo de dados)
+* [x] Além disso você precisa desenvolver um CRON para ser executado diariamente às 9h e armazenar em seu os novos artigos ao seu banco de dados. (Para essa tarefa você poderá alterar o seu modelo de dados)
 
 - Diferencial 1:
 * [x] Configurar Docker no Projeto para facilitar o Deploy da equipe de DevOps;

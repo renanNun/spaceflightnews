@@ -1,8 +1,11 @@
 import "reflect-metadata";
 import { container } from "tsyringe";
-import { createConnection } from "typeorm";
+import { createConnection, getRepository } from "typeorm";
+import { CronJob } from "../app/models/CronJob";
 import { ConsumerService } from "../app/services/ConsumerService";
 import { CreateArticleService } from "../app/services/CreateArticleService";
+
+// Cria um registro na tabela cron_job
 
 const run = async () => {
     // Criando Conexão com o banco de dados
@@ -24,25 +27,27 @@ const run = async () => {
 
     // Criar Artigo
     const createArticleService = await container.resolve(CreateArticleService);
+    const data = await consumerService.getArticles(1, total);
 
     for(let i = 0; i < total; i++) {
 
-        const data = await consumerService.getArticles(i + 1, 100);
-
-        await data.forEach(async (article: any) => {
-            try {
-                await createArticleService.execute(article);
-                console.log(`Artigo ${article.title} criado com sucesso!`);   
-            } catch (error: any) {
-                console.log(error.message);
-            }
-                    
-        });
+        try {
+            await createArticleService.execute(data[i]);
+            console.log(`Artigo ${i}: ${data[i].title} criado com sucesso!`);   
+        } catch (error: any) {
+            console.log(error.message);
+        }     
     }
 
     console.log("Artigos criados com sucesso!");
     //console.log(data);
 
+    let cronJobrepository = getRepository(CronJob);
+
+    let cronJob = new CronJob();
+    cronJob.quantity = total;
+
+    await cronJobrepository.save(cronJob);
 
     // Fechando a conexão com o banco de dados
     //await connection.close();

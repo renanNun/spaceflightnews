@@ -6,6 +6,7 @@ import router from "./routes";
 import './database';
 import { errors } from "celebrate";
 import { AppError } from "./errors/AppError";
+import cronScript from "./scripts/cron";
 
 const app = express();
 app.use(express.json());
@@ -31,6 +32,9 @@ app.use(
 );
 
 app.use(router);
+
+// Calling the cron script
+cronScript();
 
 app.listen(3333, () => {
     console.log("Server started on port 3333");
