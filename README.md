@@ -11,6 +11,39 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 
 ## Instalação do Projeto
 
+### Sem utilização do Docker
+
+* Passo 1:
+
+Crie o Banco de dados postgresql em sua máquina e altera os parâmetros de 
+username, password e host no arquivo ormconfig.json.
+
+* Passo 2:
+
+instale as dependências do projeto:
+
+```
+npm install
+```
+
+* Passo 3:
+
+crie as tabelas no banco com o comando da migration
+
+```
+npm run typeorm migration:run
+```
+
+*  Passo 4:
+
+suba o servidor
+
+``` 
+npm run dev
+```
+
+### Utilizando o docker
+
 ### ToDo
 
  - Obrigatório 1:
@@ -18,6 +51,7 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 * [x] [GET]/articles/:   Listar todos os artigos da base de dados, utilizar o sistema de paginação para não sobrecarregar a REQUEST
 * [x] [GET]/articles/{id}: Obter a informação somente de um artigo
 * [x] [POST]/articles/: Adicionar um novo artigo
+
 * [x] [PUT]/articles/{id}: Atualizar um artigo baseado no id
 * [x] [DELETE]/articles/{id}: Remover um artigo baseado no id
 
